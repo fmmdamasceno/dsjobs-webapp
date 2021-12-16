@@ -1,3 +1,4 @@
+from numpy import min_scalar_type
 import streamlit as st
 from streamlit.elements.alert import AlertMixin
 import json
@@ -11,15 +12,15 @@ st.markdown("Desenvolvido pelos alunos: Andrea Monicque, Francisco Marcelo, Luca
             "para a discplina de Infraestrutura em Nuvem para Projetos com Ciência dos Dados do curso de Pós-Graduação "\
             "em Ciência de Dados da Universidade do Estado do Amazonas - UEA.")
 
-identifier = st.number_input(
+identifier = st.text_input(
   "Indentifier",
-  value=1,
-  key="id")
+  key="id"
+)
 
 gender = st.selectbox(
   "Gender",
   gender_map.keys(),
-  key='gender')
+  key="gender")
 
 enrolled_university = st.selectbox(
   "Enrolled university",
@@ -60,39 +61,42 @@ last_new_job = st.selectbox(
   key="last_new_job"
 )
 
-relevant_experience = st.selectbox(
-  "Relevant experience",
-  relevant_experience_map.keys(),
-  key="relevant_experience"
+relevent_experience = st.selectbox(
+  "Relevent experience",
+  relevent_experience_map.keys(),
+  key="relevent_experience"
 )
 
 training_hours = st.number_input(
   "Training hours",
-  key="training_hours"
+  key="training_hours",
+  min_value=0,
+  max_value=1000
 )
 
 status = {
-  "Looking for Job": "Looking for Job",
-  "Not Looking for Job": "Not Looking for Job"
+  "Looking for Job": True,
+  "Not Looking for Job": False
 }
 
-btn_predict = st.button("Realizar Previsão")
+btn_predict = st.button("Prediction")
 
 
 
 def show_results(response):
-  result = response['status']
-  if result == status["Looking for job"]:
-    st.error("This person is looking for Job")
-  elif result == status["LNot Looking for job"]:
-    st.success("This person is not looking for Job")
+  status = response["status"]
+  print(f'This person is: {status}')
+  if status == "Looking for Job":
+    st.error(f'This person is {status}')
+  elif status == "Not Looking for Job":
+    st.success(f'This person is {status}')
 
 
 if btn_predict:
   gcloud = GCloud()
 
-  st_input = {
-      "id": str(identifier),
+  data = {
+      "id": identifier,
       "gender": gender,
       "enrolled_university": enrolled_university,
       "education_level": education_level,
@@ -101,16 +105,12 @@ if btn_predict:
       "company_size": company_size,
       "company_type": company_type,
       "last_new_job": last_new_job,
-      "relevent_experience": relevant_experience,
-      "training_hours": str(training_hours)
+      "relevent_experience": relevent_experience,
+      "training_hours": training_hours,
   }
 
-  data = str.encode(json.dumps(st_input))
-
-  try:
+  try: 
     response = gcloud.predict(data)
-
-    print(response)
     show_results(response)
   except Exception as e:
     print("Exception: ", e)
