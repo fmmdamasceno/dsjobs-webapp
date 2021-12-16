@@ -16,7 +16,7 @@ Para executar localmente, é necessário você ter instalado as seguintes ferram
 
 Após isso você pode clonar o repositório com o comando:
 ```
-git clone https://github.com/llucasreis/streamlit-webapp
+git clone https://github.com/fmmdamasceno/dsjobs-webapp
 ```
 
 ## Iniciando a aplicação
