@@ -8,8 +8,8 @@ from feature_map import *
 
 st.title("Data Science Jobs Prediction")
 st.markdown("Este é um Data App... ")
-st.markdown("Desenvolvido pelos alunos: Andrea Monicque, Francisco Marcelo, Lucas Pereira e Marcos Wenneton " \
-            "para a discplina de Infraestrutura em Nuvem para Projetos com Ciência dos Dados do curso de Pós-Graduação "\
+st.markdown("Desenvolvido pelos alunos: Andrea Monicque, Francisco Marcelo, Giovana de Lucca, Lucas Pereira e Marcos Wenneton " \
+            "para a discplina de Ciência dos Dados para Negócios do curso de Pós-Graduação "\
             "em Ciência de Dados da Universidade do Estado do Amazonas - UEA.")
 
 identifier = st.text_input(
