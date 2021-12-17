@@ -4,7 +4,7 @@
 
 Este é um Data App para predição para DataScience Jobs
 
-Desenvolvido pelos alunos: Andrea Monicque, Francisco Marcelo, Giovana de Lucca, Lucas Pereira e Marcos Wenneton para a discplina de Infraestrutura em Nuvem para Projetos com Ciência dos Dados do curso de Pós-Graduação em Ciência de Dados da Universidade do Estado do Amazonas - UEA.
+Desenvolvido pelos alunos: Andrea Monicque, Francisco Marcelo, Giovana de Lucca, Lucas Pereira e Marcos Wenneton para a discplina de Ciência dos Dados para Negócios do curso de Pós-Graduação em Ciência de Dados da Universidade do Estado do Amazonas - UEA.
 
 ### Dataset e Modelo Preditivo
 O dataset utilizado está disponível gratuitamente na plataforma Kaggle por este [link]().
