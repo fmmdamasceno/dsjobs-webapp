@@ -61,10 +61,22 @@ last_new_job = st.selectbox(
   key="last_new_job"
 )
 
+city_development_index = st.selectbox(
+  "City Development Index",
+  city_indexes_map.keys(),
+  key="city_indexes"
+)
+        
 relevent_experience = st.selectbox(
   "Relevent experience",
   relevent_experience_map.keys(),
   key="relevent_experience"
+)
+
+city = st.number_input(
+  "City",
+  min_value=0,
+  max_value=122
 )
 
 training_hours = st.number_input(
@@ -105,6 +117,8 @@ if btn_predict:
       "company_size": company_size,
       "company_type": company_type,
       "last_new_job": last_new_job,
+      "city": city,
+      "city_development_index": city_development_index,
       "relevent_experience": relevent_experience,
       "training_hours": training_hours,
   }
